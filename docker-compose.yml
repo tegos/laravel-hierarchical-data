@@ -1,0 +1,44 @@
+name: laravel-recursive-relationship
+
+services:
+    app:
+        build:
+            args:
+                user: developer
+                uid: 1000
+            context: .
+            dockerfile: docker/php/Dockerfile
+        container_name: laravel-app
+        volumes:
+            - .:/var/www/html
+        working_dir: /var/www/html
+        depends_on:
+            - mysql
+
+    nginx:
+        image: nginx:alpine
+        container_name: nginx
+        ports:
+            - "8000:80"
+        volumes:
+            - .:/var/www/html
+            - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+        depends_on:
+            - app
+
+    mysql:
+        image: mysql:8.0
+        container_name: mysql
+        restart: unless-stopped
+        environment:
+            MYSQL_DATABASE: laravel
+            MYSQL_ROOT_PASSWORD: secret
+            MYSQL_USER: laravel
+            MYSQL_PASSWORD: secret
+        volumes:
+            - mysql-data:/var/lib/mysql
+        ports:
+            - "3306:3306"
+
+volumes:
+    mysql-data:
