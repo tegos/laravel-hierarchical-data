@@ -11,7 +11,8 @@
         "php": "^8.2",
         "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
-        "laravel/telescope": "^5.9"
+        "laravel/telescope": "^5.9",
+        "staudenmeir/laravel-adjacency-list": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

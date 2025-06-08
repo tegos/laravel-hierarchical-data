@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('category')->name('category.')->group(function () {
     Route::prefix('categories')->name('categories.')->group(function () {
-        Route::get('tree', [CategoryController::class, 'tree'])->name('tree');
+        Route::get('tree-recursive', [CategoryController::class, 'treeRecursive'])->name('tree.recursive');
+        Route::get('tree-adjacency', [CategoryController::class, 'treeAdjacency'])->name('tree.adjacency');
     });
 });
