@@ -1,0 +1,22 @@
+{
+    "preset": "laravel",
+    "rules": {
+        "concat_space": {
+            "spacing": "one"
+        },
+        "function_declaration": {
+            "closure_fn_spacing": "none"
+        },
+        "single_line_empty_body": false,
+        "declare_strict_types": true,
+        "phpdoc_align": {
+            "align": "left"
+        },
+        "not_operator_with_successor_space": false,
+        "braces_position": false,
+        "new_with_parentheses": {
+            "named_class": true,
+            "anonymous_class": true
+        }
+    }
+}
