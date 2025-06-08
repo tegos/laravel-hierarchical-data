@@ -3,14 +3,16 @@
 namespace App\Actions\Catalog;
 
 use App\Actions\Actionable;
-use App\Models\Category;
 use App\Models\CategoryNode;
-use Illuminate\Database\Eloquent\Collection;
+use Kalnoy\Nestedset\Collection;
 
 final class ListCategoryTreeNestedSetAction implements Actionable
 {
     public function handle(): Collection
     {
-        return CategoryNode::query()->get()->toTree();
+        /** @var Collection $categories */
+        $categories = CategoryNode::query()->get();
+
+        return $categories->toTree();
     }
 }
