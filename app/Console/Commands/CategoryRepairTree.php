@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 
 final class CategoryRepairTree extends Command
 {
-    protected $signature = 'catalog:repair-category-tree';
+    protected $signature = 'catalog:category-repair-tree';
 
     protected $description = 'Repairs and reorders the nested set structure of categories';
 

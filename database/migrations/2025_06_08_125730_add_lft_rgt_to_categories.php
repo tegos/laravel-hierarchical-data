@@ -11,8 +11,8 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('categories', function (Blueprint $table) {
-            $table->unsignedInteger('_lft')->after('parent_id');
-            $table->unsignedInteger('_rgt')->after('_lft');
+            $table->unsignedInteger('_lft')->default(0)->after('parent_id');
+            $table->unsignedInteger('_rgt')->default(0)->after('_lft');
         });
     }
 
