@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Http\Api\V1;
 
 use App\Http\Resources\CategoryResource;
