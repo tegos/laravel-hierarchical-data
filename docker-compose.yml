@@ -1,4 +1,4 @@
-name: laravel-recursive-relationship
+name: laravel-hierarchical-data
 
 services:
     app:
