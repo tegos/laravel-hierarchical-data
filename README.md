@@ -1,61 +1,73 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Hierarchical Data - 3 Tree Structures Compared
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Managing Hierarchical Data in Laravel](assets/poster.jpg)
 
-## About Laravel
+This repository accompanies the article **[Managing Hierarchical Data in Laravel](https://dev.to/tegos/managing-hierarchical-data-in-laravel-apis-39de)**.
+It provides practical implementations and benchmarks for three prominent techniques used to store and query hierarchical (tree-structured) data within the Laravel framework.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Hierarchical Structures Included
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. **Recursive Eloquent Relationships** (native Laravel approach)
+2. **Adjacency List** (powered by [`staudenmeir/laravel-adjacency-list`](https://github.com/staudenmeir/laravel-adjacency-list))
+3. **Nested Set Model** (using [`kalnoy/nestedset`](https://github.com/lazychaser/laravel-nestedset))
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Each implementation uses a sample dataset consisting of **1,000 auto part categories** to illustrate real-world scalability and performance.
 
-## Learning Laravel
+## Getting Started
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Prerequisites
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+* Docker
+* PHP 8.2+, Composer, Laravel 12
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Installation (Dockerized)
 
-## Laravel Sponsors
+```bash
+git clone https://github.com/tegos/laravel-hierarchical-data.git
+cd laravel-hierarchical-data
+cp .env.example .env
+docker compose up -d --build
+docker compose exec app composer install
+docker compose exec app php artisan migrate --seed
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## API Endpoints
 
-### Premium Partners
+All endpoints output the complete category tree in JSON format.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+| Structure          | HTTP Method | Endpoint                                     |
+|--------------------|-------------|----------------------------------------------|
+| Recursive Eloquent | `GET`       | `/api/v1/catalog/categories/tree-recursive`  |
+| Adjacency List     | `GET`       | `/api/v1/catalog/categories/tree-adjacency`  |
+| Nested Set         | `GET`       | `/api/v1/catalog/categories/tree-nested-set` |
 
-## Contributing
+## Benchmarking
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+To compare the performance of each retrieval strategy, execute:
 
-## Code of Conduct
+```bash
+php artisan catalog:category-benchmark-tree
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+The command returns execution times for all supported methods.
 
-## Security Vulnerabilities
+## Docker Compose Services
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* `app` – Laravel PHP 8.2 app container
+* `nginx` – Web server (accessible via `localhost:8000`)
+* `mysql` – MySQL 8.0 database
 
-## License
+For the complete configuration, refer to [`docker-compose.yml`](./docker-compose.yml).
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Learn More in the Article
+
+Further technical explanation and usage details are available in the article:
+
+👉 **[Managing Hierarchical Data in Laravel](https://dev.to/tegos/managing-hierarchical-data-in-laravel-apis-39de)**
+
+Contents include:
+
+* Technical breakdowns and code samples for each tree structure in Laravel
+* Comparative analysis of recursive, adjacency list, and nested set models
+* Benchmark data using over 1,000 product categories
+* Guidance for selecting the optimal strategy for your API or catalog implementation
