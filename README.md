@@ -2,7 +2,7 @@
 
 ![Managing Hierarchical Data in Laravel](assets/poster.jpg)
 
-This repository accompanies the article **[Managing Hierarchical Data in Laravel](https://dev.to/tegos/managing-hierarchical-data-in-laravel-apis-39de)**.
+This repository accompanies the article **[Managing Hierarchical Data in Laravel](https://dev.to/tegos/managing-hierarchical-data-in-laravel-b9k)**.
 It provides practical implementations and benchmarks for three prominent techniques used to store and query hierarchical (tree-structured) data within the Laravel framework.
 
 ## Hierarchical Structures Included
@@ -63,7 +63,7 @@ For the complete configuration, refer to [`docker-compose.yml`](./docker-compose
 
 Further technical explanation and usage details are available in the article:
 
-👉 **[Managing Hierarchical Data in Laravel](https://dev.to/tegos/managing-hierarchical-data-in-laravel-apis-39de)**
+👉 **[Managing Hierarchical Data in Laravel](https://dev.to/tegos/managing-hierarchical-data-in-laravel-b9k)**
 
 Contents include:
 
