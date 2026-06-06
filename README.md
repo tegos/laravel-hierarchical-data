@@ -1,5 +1,7 @@
 # Laravel Hierarchical Data - 3 Tree Structures Compared
 
+[![CI](https://github.com/tegos/laravel-hierarchical-data/actions/workflows/ci.yml/badge.svg)](https://github.com/tegos/laravel-hierarchical-data/actions/workflows/ci.yml)
+
 ![Managing Hierarchical Data in Laravel](assets/poster.jpg)
 
 This repository accompanies the article **[Managing Hierarchical Data in Laravel](https://dev.to/tegos/managing-hierarchical-data-in-laravel-b9k)**.
@@ -18,7 +20,7 @@ Each implementation uses a sample dataset consisting of **1,000 auto part catego
 ### Prerequisites
 
 * Docker
-* PHP 8.2+, Composer, Laravel 12
+* PHP 8.3+, Composer, Laravel 13
 
 ### Installation (Dockerized)
 
@@ -28,6 +30,7 @@ cd laravel-hierarchical-data
 cp .env.example .env
 docker compose up -d --build
 docker compose exec app composer install
+docker compose exec app php artisan key:generate
 docker compose exec app php artisan migrate --seed
 ```
 
@@ -46,14 +49,44 @@ All endpoints output the complete category tree in JSON format.
 To compare the performance of each retrieval strategy, execute:
 
 ```bash
-php artisan catalog:category-benchmark-tree
+docker compose exec app php artisan catalog:category-benchmark-tree
 ```
 
 The command returns execution times for all supported methods.
 
+Additional maintenance commands:
+
+```bash
+# Rebuild nested set lft/rgt values
+docker compose exec app php artisan catalog:category-repair-tree
+
+# Print random category paths (adjacency list ancestors)
+docker compose exec app php artisan catalog:category-random-path
+```
+
+## Quality Pipeline
+
+A single command runs the whole pipeline (same entrypoint as CI):
+
+```bash
+docker compose exec app composer test
+```
+
+It executes, in order:
+
+| Script            | Tool                                  |
+|-------------------|---------------------------------------|
+| `test:unit`       | PHPUnit feature tests                 |
+| `test:types`      | PHPStan (larastan, level 5)           |
+| `test:lint`       | Pint style check                      |
+| `test:rector`     | Rector dry-run (PHP 8.3 + Laravel sets) |
+| `test:class-leak` | Unused class detection                |
+
+Auto-fixers: `composer lint` (Pint) and `composer rector`.
+
 ## Docker Compose Services
 
-* `app` – Laravel PHP 8.2 app container
+* `app` – Laravel PHP 8.4 app container
 * `nginx` – Web server (accessible via `localhost:8000`)
 * `mysql` – MySQL 8.0 database
 
