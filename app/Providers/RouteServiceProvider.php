@@ -11,7 +11,7 @@ final class RouteServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        $this->routes(function () {
+        $this->routes(function (): void {
             Route::prefix('api/v1')
                 ->as('api-v1:')
                 ->group(base_path('routes/api-v1.php'));
