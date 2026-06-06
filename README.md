@@ -1,6 +1,13 @@
 # Laravel Hierarchical Data - 3 Tree Structures Compared
 
 [![CI](https://github.com/tegos/laravel-hierarchical-data/actions/workflows/ci.yml/badge.svg)](https://github.com/tegos/laravel-hierarchical-data/actions/workflows/ci.yml)
+[![PHP](https://img.shields.io/badge/PHP-8.3%2B-777BB4?logo=php&logoColor=white)](composer.json)
+[![Laravel](https://img.shields.io/badge/Laravel-13-FF2D20?logo=laravel&logoColor=white)](https://laravel.com)
+[![PHPStan](https://img.shields.io/badge/PHPStan-level%205-4F5B93)](phpstan.neon)
+[![Code Style](https://img.shields.io/badge/code%20style-Pint-F4645F)](pint.json)
+[![Rector](https://img.shields.io/badge/refactoring-Rector-2563EB)](rector.php)
+[![License](https://img.shields.io/badge/license-MIT-green)](composer.json)
+[![Article](https://img.shields.io/badge/dev.to-article-0A0A0A?logo=devdotto&logoColor=white)](https://dev.to/tegos/managing-hierarchical-data-in-laravel-b9k)
 
 ![Managing Hierarchical Data in Laravel](assets/poster.jpg)
 
