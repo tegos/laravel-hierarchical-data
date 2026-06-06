@@ -28,11 +28,5 @@ jobs:
           cp .env.example .env
           php artisan key:generate
 
-      - name: Pint
-        run: vendor/bin/pint --test
-
-      - name: PHPStan
-        run: vendor/bin/phpstan analyse --no-progress
-
-      - name: Tests
-        run: php artisan test
+      - name: Run checks (tests, phpstan, pint, rector, class-leak)
+        run: composer test

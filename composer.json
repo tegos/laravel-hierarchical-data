@@ -16,12 +16,15 @@
         "staudenmeir/laravel-adjacency-list": "^1.0"
     },
     "require-dev": {
+        "driftingly/rector-laravel": "^2.5",
         "fakerphp/faker": "^1.23",
         "larastan/larastan": "^3.0",
         "laravel/pint": "^1.13",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
-        "phpunit/phpunit": "^12.0|^13.0"
+        "phpunit/phpunit": "^12.0|^13.0",
+        "rector/rector": "^2.4",
+        "tomasvotruba/class-leak": "^2.1"
     },
     "autoload": {
         "psr-4": {
@@ -55,9 +58,22 @@
             "Composer\\Config::disableProcessTimeout",
             "@php artisan serve"
         ],
-        "test": [
+        "lint": "vendor/bin/pint",
+        "rector": "vendor/bin/rector process",
+        "test:unit": [
             "@php artisan config:clear --ansi",
             "@php artisan test"
+        ],
+        "test:lint": "vendor/bin/pint --test",
+        "test:types": "vendor/bin/phpstan analyse --no-progress --memory-limit=512M",
+        "test:rector": "vendor/bin/rector process --dry-run",
+        "test:class-leak": "vendor/bin/class-leak check app config routes bootstrap database tests --skip-suffix=Controller --skip-suffix=Seeder --skip-suffix=Factory --skip-suffix=Provider --skip-suffix=Command --skip-suffix=Middleware",
+        "test": [
+            "@test:unit",
+            "@test:types",
+            "@test:lint",
+            "@test:rector",
+            "@test:class-leak"
         ]
     },
     "extra": {

@@ -15,7 +15,7 @@ final class CategoryRepairTree extends Command
 
     public function handle(): int
     {
-        $this->components->task('Repairing category tree structure', function () {
+        $this->components->task('Repairing category tree structure', function (): void {
             (new CategoryNode())->newNestedSetQuery()->fixTree();
         });
 

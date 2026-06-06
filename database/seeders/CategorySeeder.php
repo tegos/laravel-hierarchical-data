@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -54,8 +54,8 @@ final class CategorySeeder extends Seeder
                 'name' => $category,
                 'slug' => $slug,
                 'parent_id' => null,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
+                'created_at' => Date::now(),
+                'updated_at' => Date::now(),
             ]);
 
             $mainCategoryIds[$category] = $id;
@@ -151,8 +151,8 @@ final class CategorySeeder extends Seeder
                     'name' => $subcategory,
                     'slug' => $slug,
                     'parent_id' => $mainCategoryIds[$mainCategory],
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now(),
+                    'created_at' => Date::now(),
+                    'updated_at' => Date::now(),
                 ]);
 
                 $subCategoryIds[$subcategory] = $id;
@@ -233,8 +233,8 @@ final class CategorySeeder extends Seeder
                     'name' => $thirdLevel,
                     'slug' => $slug,
                     'parent_id' => $subCategoryIds[$parentCategory],
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now(),
+                    'created_at' => Date::now(),
+                    'updated_at' => Date::now(),
                 ]);
             }
         }
@@ -306,8 +306,8 @@ final class CategorySeeder extends Seeder
                     'name' => $name,
                     'slug' => $slug,
                     'parent_id' => $parentId,
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now(),
+                    'created_at' => Date::now(),
+                    'updated_at' => Date::now(),
                 ]);
             }
         }

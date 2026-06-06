@@ -23,9 +23,9 @@ final class CategoryBenchmarkTree extends Command
     ): int
     {
         $measures = Benchmark::measure([
-            class_basename(ListCategoryTreeRecursiveAction::class) => fn() => $listCategoryTreeRecursiveAction->handle(),
-            class_basename(ListCategoryTreeAdjacencyAction::class) => fn() => $listCategoryTreeAdjacencyAction->handle(),
-            class_basename(ListCategoryTreeNestedSetAction::class) => fn() => $listCategoryTreeNestedSetAction->handle(),
+            class_basename(ListCategoryTreeRecursiveAction::class) => $listCategoryTreeRecursiveAction->handle(...),
+            class_basename(ListCategoryTreeAdjacencyAction::class) => $listCategoryTreeAdjacencyAction->handle(...),
+            class_basename(ListCategoryTreeNestedSetAction::class) => $listCategoryTreeNestedSetAction->handle(...),
         ], 100);
 
         $this->table(array_keys($measures), [$measures]);
