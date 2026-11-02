@@ -1413,16 +1413,16 @@
         },
         {
             "name": "laravel/sanctum",
-            "version": "v4.3.2",
+            "version": "v4.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sanctum.git",
-                "reference": "2a9bccc18e9907808e0018dd15fa643937886b1e"
+                "reference": "fee27a573d1a013af3721d86153a65e0b11927e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sanctum/zipball/2a9bccc18e9907808e0018dd15fa643937886b1e",
-                "reference": "2a9bccc18e9907808e0018dd15fa643937886b1e",
+                "url": "https://api.github.com/repos/laravel/sanctum/zipball/fee27a573d1a013af3721d86153a65e0b11927e6",
+                "reference": "fee27a573d1a013af3721d86153a65e0b11927e6",
                 "shasum": ""
             },
             "require": {
@@ -1472,7 +1472,7 @@
                 "issues": "https://github.com/laravel/sanctum/issues",
                 "source": "https://github.com/laravel/sanctum"
             },
-            "time": "2026-04-30T11:46:25+00:00"
+            "time": "2026-06-23T18:26:55+00:00"
         },
         {
             "name": "laravel/sentinel",
@@ -1593,16 +1593,16 @@
         },
         {
             "name": "laravel/telescope",
-            "version": "v5.20.0",
+            "version": "v5.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/telescope.git",
-                "reference": "38ec6e6006a67e05e0c476c5f8ef3550b72e43d8"
+                "reference": "bedfc50a3561c93cd89064643139a51c56bfd8a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/telescope/zipball/38ec6e6006a67e05e0c476c5f8ef3550b72e43d8",
-                "reference": "38ec6e6006a67e05e0c476c5f8ef3550b72e43d8",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/bedfc50a3561c93cd89064643139a51c56bfd8a6",
+                "reference": "bedfc50a3561c93cd89064643139a51c56bfd8a6",
                 "shasum": ""
             },
             "require": {
@@ -1615,10 +1615,10 @@
             },
             "require-dev": {
                 "ext-gd": "*",
-                "guzzlehttp/guzzle": "^6.0|^7.0",
+                "guzzlehttp/guzzle": "^6.0|^7.0|^8.0",
                 "laravel/octane": "^1.4|^2.0",
-                "orchestra/testbench": "^6.47.1|^7.55|^8.36|^9.15|^10.8|^11.0",
-                "phpstan/phpstan": "^1.10"
+                "orchestra/testbench": "^6.48|^7.57|^8.38|^9.15|^10.8|^11.0",
+                "phpstan/phpstan": "^2.2.9"
             },
             "type": "library",
             "extra": {
@@ -1655,10 +1655,9 @@
                 "monitoring"
             ],
             "support": {
-                "issues": "https://github.com/laravel/telescope/issues",
-                "source": "https://github.com/laravel/telescope/tree/v5.20.0"
+                "source": "https://github.com/laravel/telescope/tree/v5.26.0"
             },
-            "time": "2026-04-06T12:52:26+00:00"
+            "time": "2026-09-22T21:38:44+00:00"
         },
         {
             "name": "league/commonmark",
@@ -3360,16 +3359,16 @@
         },
         {
             "name": "staudenmeir/laravel-adjacency-list",
-            "version": "v1.26.1",
+            "version": "v1.26.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/staudenmeir/laravel-adjacency-list.git",
-                "reference": "a8302f3564a8d56fff75c53ffe05521ffabe77cc"
+                "reference": "af17ecdaec76148490c4617c5900ff01ccddbc2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/staudenmeir/laravel-adjacency-list/zipball/a8302f3564a8d56fff75c53ffe05521ffabe77cc",
-                "reference": "a8302f3564a8d56fff75c53ffe05521ffabe77cc",
+                "url": "https://api.github.com/repos/staudenmeir/laravel-adjacency-list/zipball/af17ecdaec76148490c4617c5900ff01ccddbc2d",
+                "reference": "af17ecdaec76148490c4617c5900ff01ccddbc2d",
                 "shasum": ""
             },
             "require": {
@@ -3416,7 +3415,7 @@
             "description": "Recursive Laravel Eloquent relationships with CTEs",
             "support": {
                 "issues": "https://github.com/staudenmeir/laravel-adjacency-list/issues",
-                "source": "https://github.com/staudenmeir/laravel-adjacency-list/tree/v1.26.1"
+                "source": "https://github.com/staudenmeir/laravel-adjacency-list/tree/v1.26.2"
             },
             "funding": [
                 {
@@ -3424,7 +3423,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2026-04-13T19:35:25+00:00"
+            "time": "2026-10-05T19:15:55+00:00"
         },
         {
             "name": "staudenmeir/laravel-cte",
